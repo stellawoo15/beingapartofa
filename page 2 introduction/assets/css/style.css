@@ -1,0 +1,156 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 704px) {
+}
+
+
+body { margin : 20px;
+		color: red;
+		background-color: white;
+	}
+
+.in {margin : 20px;
+		color: red;}
+
+.dotted-line {
+    border-bottom: 2px dashed red; /* 아래쪽에 빨간색 점선 추가 */
+    padding-bottom: 2px;           /* 글자와 점선 사이 간격 */
+    
+    /* 애니메이션 이름, 지속 시간, 무한 반복 설정 */
+    animation: line-blink 2s infinite ease-in-out;
+}
+
+/* 2. 깜빡이는 방식을 정의하는 애니메이션 키프레임 */
+@keyframes line-blink {
+    0%, 100% {
+        border-bottom-color: red;         /* 선이 진하게 보임 */
+    }
+    50% {
+        border-bottom-color: transparent; /* 선이 투명해져서 사라짐 */
+    }
+}
+
+
+.description {
+    position: absolute;       /* 화면 원하는 위치에 자유롭게 배치 */
+    left: 65vw;               /* 화면 왼쪽에서 2/3(약 65%) 지점에 위치 지정 */
+    top: 200px;                /* 위쪽에서의 여백 (원하는 높이에 맞게 조절) */
+    width: 280px;             /* 기획안처럼 네모 박스 모양으로 줄바꿈되도록 너비 고정 */
+    
+    
+    /* 박스 테두리 */
+    border: 1.5px solid black;  /* 검은색 1px 두께의 테두리 생성 */
+    padding: 20px;            /* 글자와 테두리 사이의 여백 */
+    background-color: white;  /* 박스 배경색을 하얗게 (원하시는 경우에만 추가) */
+    
+    font-size: 12px;          /* 본문 글자 크기 */
+    line-height: 1.5;         /* 줄간격 조절 */
+    color: lightgray;               /* 글자색 지정 */
+    text-align: left;         /* 박스 내부 텍스트는 좌측 정렬 */
+}
+
+
+.highlight {
+    background-color: #eaf5fa; /* 밝은 파란색(스카이블루) 형광펜 색상 */
+    color: lightgray;                /* 글자 색상은 기존 빨간색 유지 */
+    padding: 2px 4px;          /* 형광펜 영역의 좌우 여백을 살짝 줌 */
+}
+
+
+
+.group {position: absolute;
+    	left: 55vw;             /* 검정 박스와 동일한 X축 라인(2/3 지점)에 배치 */
+    	top: 420px;             /* 검정 박스 아래쪽에 오도록 top 값을 더 크게 설정 */
+    
+    	font-size: 13px;        /* 글자 크기 지정 */
+    	color: gray;             /* 글자 색상 (필요 시 수정) */
+}
+
+
+/* 1. 전체를 감싸는 영역 (가로 정렬)*/
+.cloud-container {
+    position: absolute;
+    left: 50vw;             /* 원하는 가로 위치 */
+    top: 420px;             /* 원하는 세로 위치 */
+    display: flex;          /* 구름과 글자를 가로 정렬 */
+    align-items: center;
+    gap: 12px;
+    width: 500 px;           /* 구름 이미지 크기에 맞춰 조절 */
+}
+
+/* 2. 구름 이미지 스타일 */
+.cloud-bg {
+    width: 100px;            /* 구름 크기 */
+    height: auto;
+    display: block;
+}
+
+/* 버전 2* /
+/* 움직이게 하고 싶은 그룹 */
+.move {
+    /* ease-in-out 대신 steps(단계수)를 사용합니다 */
+    animation: stepMove 1.5s steps(5, end) infinite alternate;
+    display: inline-block;
+}
+
+/* 단계별 이동 키프레임 */
+@keyframes stepMove {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-80px);    /* 이동할 전체 거리 */
+    }
+}
+
+
+/* 3. 구름 위에 얹어질 텍스트/아이콘 영역 */
+.cloud-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 4. 글자 스타일 */
+.cloud-title {
+    font-size: 13px;
+    color: gray;  
+    white-space: nowrap;
+}
+
+/* 콜론 기호 */
+.colon {
+    color: gray;
+    font-size: 13px;
+    margin-right: 4px;
+}
+
+.icons-row {
+    position: absolute;
+    left: 120px;
+    top: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.small-icon {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
