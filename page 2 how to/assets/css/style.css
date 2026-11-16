@@ -33,3 +33,187 @@ body { margin : 20px;
         border-bottom-color: transparent; /* 선이 투명해져서 사라짐 */
     }
 }
+
+
+/* 사이드바 메뉴 링크 스타일 정리 */
+h6 a {
+    color: red;          /* 기존 텍스트 색상을 그대로 물려받음 */
+    text-decoration: none;   /* 링크 밑줄 제거 */
+}
+
+/* 마우스를 올렸을 때 살짝 진해지거나 변화를 주고 싶다면 (선택사항) */
+h6 a:hover {
+    color: red;
+    opacity: 0.7;            /* 마우스 올릴 때 투명도 조절 */
+}
+
+
+.keywords {
+    position: absolute;       /* 화면 원하는 위치에 자유롭게 배치 */
+    left: 28vw;               /* 화면 왼쪽에서 2/3(약 65%) 지점에 위치 지정 */
+    top: 100px;                /* 위쪽에서의 여백 (원하는 높이에 맞게 조절) */
+    width: 600px;             /* 기획안처럼 네모 박스 모양으로 줄바꿈되도록 너비 고정 */
+    font-size: 12px;          /* 본문 글자 크기 */
+    line-height: 1.5;         /* 줄간격 조절 */
+    color: #75756A;               /* 글자색 지정 */
+    text-align: left;         /* 박스 내부 텍스트는 좌측 정렬 */
+
+
+     /* 연두 점선 테두리 */
+    border: 1.5px dashed lightgreen;  /* 검은색 1px 두께의 테두리 생성 */
+    padding: 25px;            /* 글자와 테두리 사이의 여백 */
+    background-color: #FAFEFF;  /* 박스 배경색을 하얗게 (원하시는 경우에만 추가) */
+}
+
+
+/* "그리고 멀리 날아가기" 텍스트만 오른쪽으로 이동 */
+.fly-text {
+    display: inline-block;
+    margin-left: 200px;  /* 숫자를 늘리거나 줄여서 원하는 만큼 오른쪽으로 밀어보세요 */
+}
+
+
+
+/* <섬 탐험하기> 배치 */
+.explore-island {
+    position: absolute;
+    right: 45px;          /* 박스 오른쪽 테두리로부터의 거리 (좌우 위치 조절) */
+    top: 47%;             /* 박스 세로 높이의 정중앙 지점 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 보정 */
+    text-align: center;   /* 아이콘과 텍스트 가운데 정렬 */
+    font-size: 12px;
+    color: #75756A;
+    transition: color 0.2s;
+}
+
+/* 마우스를 올렸을 때 텍스트 색상이 검은색으로 변하도록 설정 */
+.explore-island:hover {
+    color: black !important;
+}
+
+/* 혹시 링크 내부 글자색이 고정되어 있다면 이 코드도 함께 추가해 주세요 */
+.explore-island a {
+    color: inherit;
+}
+
+
+/* 1. 기본 해 이미지 링크 스타일 */
+.explore-island a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+/* 2. sun 크기, 간격 조절 */
+.explore-island img {
+    width: 80px; /* 해 아이콘의 가로 크기 (원하는 크기로 조절 가능) */
+    height: auto; /* 비율 유지 */
+    display: block;
+    margin: 0 auto 8px; /* 이미지 아래쪽에 8px 간격을 주어 텍스트와 떨어뜨림 */
+    transition: opacity 0.1s; /* 부드러운 전환 효과 */
+}
+
+/* 3. 마우스 커서를 올렸을 때(hover) 깜빡이는 애니메이션 작동 */
+.explore-island a:hover img {
+    animation: imageBlink 2s infinite ease-in-out;
+}
+
+/* 4. 깜빡이는 방식을 정의하는 키프레임 */
+@keyframes imageBlink {
+    0%, 100% {
+        opacity: 1;    /* 이미지가 선명하게 보임 */
+    }
+    50% {
+        opacity: 0.2;  /* 투명해져서 깜빡이는 효과 연출 */
+    }
+}
+
+
+/* 1. 태양 래퍼 기본 설정 */
+.sun-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.sun-wrapper a img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+/* 1. [1단계] 왼쪽에서 '그리고 멀리-' 전까지 이동하는 첫 번째 새 */
+.bird-intro {
+    position: absolute;
+    left: -500px;         /* 화면 왼쪽 바깥 출발점 */
+    top: 285px;           /* '그리고 멀리 날아가기' 높이 맞춤 */
+    pointer-events: none;
+    z-index: 10;
+}
+
+.bird-intro img {
+    width: 130px;
+    height: auto;
+    display: block;
+    animation: flyInLeft 13s infinite linear;
+}
+
+@keyframes flyInLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    5% {
+        opacity: 1;
+    }
+    22% {
+        opacity: 1;
+    }
+    25% {
+        /* '그리고 멀리 날아가기' 텍스트 바로 왼쪽 앞에서 멈추며 사라짐 */
+        transform: translateX(600px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(600px);
+        opacity: 0;
+    }
+}
+
+/* 2. [2단계] 0.5초 시차 후 공전 및 퇴장하는 두 번째 새 (기존 위치 값 그대로 유지) */
+.bird-orbit {
+    position: absolute;
+    left: 50px;
+    top: 135px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.bird-orbit img {
+    width: 130px;
+    height: auto;
+    display: block;
+    transform-origin: -10px -68px;
+    animation: flyCounterClockwise 13s infinite linear;
+}
+
+@keyframes flyCounterClockwise {
+    0%, 29% {
+        /* 앞선 새가 25%(2.5초)에 사라진 뒤 0.5초 시차를 두고 30%(3초)에 출발 */
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    72% {
+        /* 태양 중심 반시계 방향 1회 공전 완료 */
+        transform: translate(0, 0) rotate(-360deg);
+        opacity: 1;
+    }
+    100% {
+        /* 오른쪽 바깥으로 날아가며 사라짐 */
+        transform: translate(500px, -20px) rotate(-360deg);
+        opacity: 0;
+    }
+}
+

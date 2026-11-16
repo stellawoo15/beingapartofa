@@ -1,0 +1,14 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+@media screen and (max-width: 704px) {
+}
+
+
+body { margin : 20px;
+		color: gray;
+		background-color: #FFFFF2;
+	}

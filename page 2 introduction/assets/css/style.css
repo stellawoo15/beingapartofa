@@ -14,6 +14,20 @@ body { margin : 20px;
 		background-color: white;
 	}
 
+
+/* 사이드바 메뉴 링크 스타일 정리 */
+h6 a {
+    color: red;          /* 기존 텍스트 색상을 그대로 물려받음 */
+    text-decoration: none;   /* 링크 밑줄 제거 */
+}
+
+/* 마우스를 올렸을 때 살짝 진해지거나 변화를 주고 싶다면 (선택사항) */
+h6 a:hover {
+    color: red;
+    opacity: 0.7;            /* 마우스 올릴 때 투명도 조절 */
+}
+
+
 .in {margin : 20px;
 		color: red;}
 
@@ -147,10 +161,46 @@ body { margin : 20px;
 }
 
 
+/* '예수를 믿으세요' 사진을 감싸는 박스 스타일 */
+.jesus {
+    width: 320px;          /* 스케치 느낌에 맞는 전체 가로 크기 설정 */
+    margin: 500px auto 0;      /* 위치 설정 */
+}
+
+/* 사진 크기가 박스에 딱 맞게 자동 조절되도록 설정 */
+.jesus img {
+    width: 100%;
+    height: auto;
+    display: block;
+  
+}
 
 
+/* 부드럽게 좌우로 움직이는 애니메이션 박스 */
+.smooth-photo {
+    display: block;
+    width: 100%;
+    animation: smoothCenterMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes smoothCenterMove {
+    0% {
+        transform: translateX(-80px);  /* 중앙 기준 왼쪽 간격 */
+    }
+    100% {
+        transform: translateX(80px);   /* 중앙 기준 오른쪽 간격 */
+    }
+}
 
 
+.leftarrow {
+    position: absolute;
+    left: 150px;
+    top: 670px;
+}
 
-
-
+.rightarrow {
+    position: absolute;
+    right: 150px;
+    top: 670px;    
+}

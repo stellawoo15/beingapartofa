@@ -1,0 +1,75 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+@media screen and (max-width: 704px) {
+}
+
+
+body { margin : 20px;
+		color: gray;
+		background-color: #F2FCFF;
+	}
+
+
+.thefirstground {
+     position: relative; /* 내부 요소들의 위치 기준점이 되는 바탕 대지 */
+     width: 2000px;
+     margin: 50px auto;
+}
+
+.thefirstground img {
+    width: 1500px;           /* 1. 이미지 가로 크기: 원하시는 크기(px 또는 %)로 숫자를 키우거나 줄여보세요 */
+    height: 500px;           /* 2. 이미지 세로 크기: 원하시는 크기(px 또는 %)로 숫자를 키우거나 줄여보세요 */
+    display: block;
+    
+    /* 2. 이미지 위치(여백): 상하좌우 위치를 조절하고 싶을 때 마진(margin)을 활용합니다 */
+    margin-top: 500px;       /* 위쪽에서 띄우는 거리 */
+    margin-left: 50px;      /* 왼쪽에서 띄우는 거리 (또는 중앙 정렬하려면 margin: 0 auto;) */
+}
+
+			/* 사용자 인터페이스!!	원본 이미지에 마우스를 올렸을 때 드래그 가능하다는 표시 */
+/* 원본 이미지: 드래그 흔적(파란 선택 영역, 기본 고스트 이미지) 완벽 차단 */
+.thefirstground img {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none; /* 사파리/크롬에서 잔상이 따라오는 현상 방지 */
+}
+
+/* 드래그해서 화면에 생성되는 랜덤 크기 복제본 */
+.cloned-ground {
+    position: absolute;
+    height: auto;
+    opacity: 0.7;
+    pointer-events: auto;
+    cursor: grab;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.12));
+    
+    /* 복제본 역시 드래그 잔상 방지 */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.cloned-ground:active {
+    cursor: grabbing;
+}
+
+
+
+
+
+
+
+
+/* 이미지 위에 얹을 요소의 스타일
+.overlay-element {
+    position: absolute; /* 이미지를 무시하고 그 위에 띄움 */
+    top: 40px;          /* 이미지 위쪽에서 40px 떨어진 곳 */
+    left: 40px;         /* 이미지 왼쪽에서 40px 떨어진 곳 */
+} */
